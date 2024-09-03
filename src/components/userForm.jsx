@@ -64,7 +64,7 @@ const UserForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const scriptURL = "https://script.google.com/macros/library/d/1mqGo2RqTbHNao0l0JhEgGgNuU6n3XT8XjQrc2ioXEAlk4_wtYZ0Js9zj/2"
+    const scriptURL = "https://script.google.com/macros/library/d/1mqGo2RqTbHNao0l0JhEgGgNuU6n3XT8XjQrc2ioXEAlk4_wtYZ0Js9zj/3"
 
     const formData = new FormData();
     formData.append("fullName", formValues.fullName);
