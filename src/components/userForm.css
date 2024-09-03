@@ -1,0 +1,68 @@
+.user-form-container {
+  max-width: 600px;
+  margin: 40px auto;
+  font-family: "Rubik";
+  padding: 0 16px;
+}
+
+.user-form-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.user-form-stack {
+  gap: 16px;
+}
+
+.user-form-upload-btn {
+  border-color: #1976d2;
+  color: #1976d2;
+  height: 3rem;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-form-upload-btn:hover {
+  background-color: #1976d2;
+  color: #ffffff;
+}
+
+.uploaded-file-name {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #555;
+  text-align: center;
+}
+
+.button-container {
+  display: flex;
+  gap: 3rem;
+}
+
+.user-form-submit-btn {
+  background-color: #1976d2;
+  color: #ffffff;
+  height: 3rem;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.user-form-submit-btn:hover {
+  background-color: #1565c0;
+}
+
+.user-form-reset-btn {
+  background-color: #f44336;
+  color: #ffffff;
+  height: 3rem;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.user-form-reset-btn:hover {
+  background-color: #d32f2f;
+}
