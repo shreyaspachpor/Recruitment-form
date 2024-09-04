@@ -45,6 +45,8 @@ const UserForm = () => {
     resume: null,
     githubId: "",
   });
+  const [submissionStatus, setSubmissionStatus] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -63,9 +65,10 @@ const UserForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (isSubmitting) return;
+    setIsSubmitting(true);
 
-    const scriptURL = "https://script.google.com/macros/library/d/1mqGo2RqTbHNao0l0JhEgGgNuU6n3XT8XjQrc2ioXEAlk4_wtYZ0Js9zj/3"
-
+    const scriptURL = "https://script.google.com/macros/s/AKfycbznHFY1HPhLDAH3I_d091WVjc81jE52chsEMRKv6sq315Jg939bmL698Sd1hDwVev0O/exec"
     const formData = new FormData();
     formData.append("fullName", formValues.fullName);
     formData.append("phoneNumber", formValues.phoneNumber);
@@ -87,12 +90,21 @@ const UserForm = () => {
         fetch(scriptURL, {
           method: "POST",
           body: formData,
+          mode:"no-cors",
         })
           .then((response) => response.text())
           .then((result) => {
+            setSubmissionStatus(
+              "Success! Your application has been submitted."
+            );
+            setIsSubmitting(false);
             console.log("Success:", result);
           })
           .catch((error) => {
+            setSubmissionStatus(
+              "Error! There was an issue submitting your application."
+            );
+            setIsSubmitting(false);
             console.error("Error:", error);
           });
       };
@@ -101,12 +113,19 @@ const UserForm = () => {
       fetch(scriptURL, {
         method: "POST",
         body: formData,
+        mode: "no-cors"
       })
         .then((response) => response.text())
         .then((result) => {
+          setSubmissionStatus("Success! Your application has been submitted.");
+          setIsSubmitting(false);
           console.log("Success:", result);
         })
         .catch((error) => {
+          setSubmissionStatus(
+            "Error! There was an issue submitting your application."
+          );
+          setIsSubmitting(false);
           console.error("Error:", error);
         });
     }
@@ -124,6 +143,7 @@ const UserForm = () => {
       resume: null,
       githubId: "",
     });
+    setSubmissionStatus("");
   };
 
   return (
@@ -271,6 +291,7 @@ const UserForm = () => {
                 color="primary"
                 type="submit"
                 className="user-form-submit-btn"
+                disabled={isSubmitting}
               >
                 Submit
               </Button>
@@ -284,6 +305,11 @@ const UserForm = () => {
                 Reset
               </Button>
             </Box>
+            {submissionStatus && (
+              <Typography variant="h6" color="primary" sx={{ marginTop: 2 }}>
+                {submissionStatus}
+              </Typography>
+            )}
           </Stack>
         </form>
       </Box>
