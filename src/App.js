@@ -1,10 +1,17 @@
-import React from 'react';
-import UserForm from './components/userForm';
+import React from "react";
+import DescriptionComponent from "./components/descriptionDepartment";
+import UserForm from "./components/userForm";
+import "./App.css";
 
 const App = () => {
   return (
-    <div>
-      <UserForm />
+    <div className="app-container">
+      <div className="glass-container">
+        <DescriptionComponent />
+        <div className="user-form-wrapper">
+          <UserForm />
+        </div>
+      </div>
     </div>
   );
 };
