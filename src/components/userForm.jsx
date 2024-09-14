@@ -30,7 +30,7 @@ const departments = [
   "Electronics",
   "Creative & Management",
 ];
-const years = ["FY"];
+const years = ["First Year","Direct Second Year"];
 
 const UserForm = () => {
   const [formValues, setFormValues] = useState({
@@ -39,7 +39,7 @@ const UserForm = () => {
     email: "",
     rollNo: "",
     branch: "",
-    year: "FY",
+    year: "",
     department: "",
     resume: null,
     githubId: "",
@@ -138,7 +138,7 @@ const UserForm = () => {
       email: "",
       rollNo: "",
       branch: "",
-      year: "FY",
+      year: "",
       department: "",
       resume: null,
       githubId: "",
@@ -224,7 +224,6 @@ const UserForm = () => {
                   value={formValues.year}
                   label="Year"
                   onChange={handleChange}
-                  disabled={true}
                   required
                 >
                   {years.map((year) => (
@@ -267,7 +266,7 @@ const UserForm = () => {
                   accept=".pdf,.doc,.docx"
                   hidden
                   onChange={handleFileChange}
-                  required
+                  
                 />
               </Button>
               {formValues.resume && (
