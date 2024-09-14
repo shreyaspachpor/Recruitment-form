@@ -30,7 +30,7 @@ const departments = [
   "Electronics",
   "Creative & Management",
 ];
-const years = ["FY,DSY"];
+const years = ["FY"];
 
 const UserForm = () => {
   const [formValues, setFormValues] = useState({
