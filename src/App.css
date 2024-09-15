@@ -50,6 +50,7 @@ body, html {
     margin-top: 160px;
     width: 500px;
     padding: 10px; 
+    background-image: none;
   }
   .glass-container {
     flex-direction: column;
